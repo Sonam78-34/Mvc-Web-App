@@ -1,0 +1,73 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+
+@*@model Login
+
+@using (Html.BeginForm("Login","Home", FormMethod.Post))
+{
+    @Html.ValidationSummary()
+
+    <div>
+        @Html.LabelFor(m => m.UserName)
+        @Html.TextBoxFor(m => m.UserName)
+    </div>
+
+    <div>
+        @Html.LabelFor(m => m.Password)
+        @Html.PasswordFor(m => m.Password)
+    </div>
+
+    <button type="submit">Login</button>
+}
+*@
+
+@*@model Login
+
+@using (Html.BeginForm("Login", "Home", FormMethod.Post))
+{
+    <div class="form-group">
+        <label for="UserName">Username</label>
+        <input type="text" class="form-control" id="UserName" name="UserName">
+    </div>
+
+    <div class="form-group">
+        <label for="Password">Password</label>
+        <input type="password" class="form-control" id="Password" name="Password">
+    </div>
+
+    <button type="submit"  style="margin-top: 10px; margin-bottom: 10px;"  class="btn btn-primary">Login</button>
+}
+*@
+
+@model Login
+
+<div class="container d-flex  justify-content-center" style="height: 100vh; margin-top: 0;"
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card mt-5">
+                <div class="card-body">
+                    <h2 class="card-title text-center">Login</h2>
+                    @using (Html.BeginForm("Login", "Home", FormMethod.Post))
+                    {
+                        <div class="form-group">
+                            <label for="UserName">Username</label>
+                            <input type="text" class="form-control" id="UserName" name="UserName">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="Password">Password</label>
+                            <input type="password" class="form-control" id="Password" name="Password">
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-block">Login</button>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

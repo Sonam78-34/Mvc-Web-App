@@ -1,0 +1,77 @@
+﻿@using System.Data;
+@model DataTable;
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+
+<div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        <li data-bs-target="#myCarousel" data-bs-slide-to="0" class="active"></li>
+        <li data-bs-target="#myCarousel" data-bs-slide-to="1"></li>
+        <li data-bs-target="#myCarousel" data-bs-slide-to="2"></li>
+    </ol>
+
+    <!-- Slides -->
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img style="width: 100%; height: 530px;" src="https://image.tmdb.org/t/p/original/oJwNdpeKyOxyaBJ8WEOsDVH5FIq.jpg" alt="Image 1">
+            
+        </div>
+        <div class="carousel-item">
+            <img style="width: 100%; height: 530px;" src="https://2.bp.blogspot.com/-UALwcDdYF0c/UCIhRLoSXkI/AAAAAAAABzw/Lu1TjZjmZNQ/s1600/Journey-2-The-+Mysterious-Island-(2012)-Full-+Movie-Watch-+Online.jpg" alt="Image 2">
+            
+        </div>
+        <div class="carousel-item">
+            <img style="width: 100%; height: 530px;" src="https://thecommonmanspeaks.com/wp-content/uploads/2017/03/Baahubali-2-poster.jpg" alt="Image 3">
+            
+        </div>
+    </div>
+
+    <!-- Controls -->
+    <a class="carousel-control-prev" href="#myCarousel" role="button" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#myCarousel" role="button" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </a>
+</div>
+
+
+
+
+
+ <div class="container">
+    <div class="row">
+        @foreach (DataRow row in Model.Rows)
+        {
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="@row["Image"]" class="card-img-top" alt="@row["Name"]">
+                    <div class="card-body">
+                        <h5 class="card-title">@row["Name"]</h5>
+                        <p class="card-text">Rating: @row["Rating"]</p>
+                        <p class="card-text">Language: @row["Language"]</p>
+                        <p class="card-text">Duration: @row["Duration"]</p>
+                        <p class="card-text">Genre: @row["Genre"]</p>
+                        <p class="card-text">Availability: @row["Availability"]</p>
+                        <p class="card-text">Cast: @row["Cast"]</p>
+                        <p class="card-text">Description: @row["Description"]</p>
+                        <a href="#" class="btn btn-primary">Book Now</a>
+                    </div>
+                </div>
+            </div>
+
+            @if ((Model.Rows.IndexOf(row) + 1) % 4== 0)
+            {
+                @:</div><div class="row">
+            }
+        }
+    </div>
+</div>

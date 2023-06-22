@@ -1,0 +1,59 @@
+﻿@model MovieOnlineBookingMVC.Models.Movie
+
+@{
+    ViewData["Title"] = "Edit Movie";
+}
+
+<h1>Edit Movie</h1>
+
+@using (Html.BeginForm("EditMovie", "Admin"))
+{
+    @Html.HiddenFor(m => m.MovieId) <!-- Include a hidden field for the MovieId -->
+
+    <div class="form-group">
+        <label for="name">Name:</label>
+        @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <label for="image">Image:</label>
+        @Html.TextBoxFor(m => m.Image, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <label for="rating">Rating:</label>
+        @Html.TextBoxFor(m => m.Rating, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <label for="language">Language:</label>
+        @Html.TextBoxFor(m => m.Language, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <label for="duration">Duration:</label>
+        @Html.TextBoxFor(m => m.Duration, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <label for="genre">Genre:</label>
+        @Html.TextBoxFor(m => m.Genre, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <label for="availability">Availability:</label>
+        @Html.TextBoxFor(m => m.Availability, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <label for="cast">Cast:</label>
+        @Html.TextBoxFor(m => m.Cast, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <label for="description">Description:</label>
+        @Html.TextBoxFor(m => m.Description, new { @class = "form-control" })
+    </div>
+
+    <button type="submit" class="btn btn-primary">Update</button>
+}

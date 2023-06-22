@@ -1,0 +1,87 @@
+﻿@using System.Data;
+@model DataTable;
+
+
+
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayName("MovieId")
+            </th>
+            <th>
+                @Html.DisplayName("Name")
+            </th>
+            <th>
+                @Html.DisplayName("Image")
+            </th>
+            <th>
+                @Html.DisplayName("Rating")
+            </th>
+            <th>
+                @Html.DisplayName("Language")
+            </th>
+            <th>
+                @Html.DisplayName("Duration")
+            </th>
+            <th>
+                @Html.DisplayName("Genre")
+            </th>
+            <th>
+                @Html.DisplayName("Availability")
+            </th>
+            <th>
+                @Html.DisplayName("Cast")
+            </th>
+            <th>
+                @Html.DisplayName("Description")
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (DataRow row in Model.Rows)
+        {
+            <tr>
+                <td>
+                    @row["MovieId"]
+                </td>
+                <td>
+                    @row["Name"]
+                </td>
+                <td>
+                    @row["Image"]
+                </td>
+                <td>
+                    @row["Rating"]
+                </td>
+                <td>
+                    @row["Language"]
+                </td>
+                <td>
+                    @row["Duration"]
+                </td>
+                <td>
+                    @row["Genre"]
+                </td>
+                <td>
+                    @row["Availability"]
+                </td>
+                <td>
+                    @row["Cast"]
+                </td>
+                <td>
+                    @row["Description"]
+                </td>
+                <td>
+                    <a href="@Url.Action("AddMovie", "Admin")" class="btn btn-primary" >Add</a>
+                    @Html.ActionLink("Edit", "EditMovie", "Admin", new { id = row["MovieId"], name = row["Name"]  }, new { @class = "btn btn-primary" })  
+
+                    @Html.ActionLink("Delete", "Delete", new { id = row["MovieId"] }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
